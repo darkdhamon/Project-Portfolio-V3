@@ -1,0 +1,6 @@
+﻿@model Project_Portfolio.Models.ProjectListViewModel
+
+@foreach (var project in Model.Projects.Take(4))
+{
+    @Html.Partial("_ProjectCard",project)
+}

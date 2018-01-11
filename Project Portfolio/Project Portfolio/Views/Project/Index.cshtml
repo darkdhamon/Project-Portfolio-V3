@@ -1,0 +1,27 @@
+﻿@model Project_Portfolio.Models.ProjectListViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+<div class="row">
+    <h2>
+        Project List
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="@Url.Action("Edit", "Project")">
+                <i class="glyphicon glyphicon-plus"></i>
+            </a>
+        }
+    </h2>
+</div>
+
+@for (var i = 0; i <= Model.NumOfRowsOfFour; i++)
+{
+    var projectRow = Model.Projects.Skip(i * 4).Take(4);
+    <div class="row">
+        @foreach (var project in projectRow)
+        {
+            @Html.Partial("_ProjectCard",project)
+        }
+    </div>
+}

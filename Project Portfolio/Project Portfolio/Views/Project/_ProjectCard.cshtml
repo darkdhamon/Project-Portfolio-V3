@@ -1,0 +1,35 @@
+﻿@model PortfolioModel.Entities.Project
+
+<div class="col-sm-6 col-md-3 card @(Model.Featured?"featured":"")">
+    @{
+        var description = Model.Description?.Split(Environment.NewLine.ToCharArray());
+
+    }
+    <div>
+        <h4>@Model.Name
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="@Url.Action("Edit", "Project", new {id = Model.ID})">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            }
+        </h4>
+        <div class="row projectDescription">
+        @foreach (var paragraph in description??new string[0])
+        {
+            <p>@paragraph</p>
+        }
+        </div>
+    </div>
+
+    <div class="row btn-group">
+        @if (!string.IsNullOrWhiteSpace(Model.DemoUrl))
+        {   
+            <a class="btn btn-success half-width" target="_blank" href="@Model.DemoUrl">Demo</a>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.SourceUrl))
+        {
+            <a class="btn btn-info half-width" target="_blank" href="@Model.SourceUrl">Source</a>
+        }
+    </div>
+</div>

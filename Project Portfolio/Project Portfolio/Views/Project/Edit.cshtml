@@ -1,0 +1,81 @@
+﻿@model PortfolioModel.Entities.Project
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "Project", FormMethod.Post))
+{
+    @Html.HiddenFor(p=>p.ID)
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.Name)
+        </div>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p=>p.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.Featured)
+        </div>
+        <div class="col-sm-10">
+            @Html.CheckBoxFor(p=>p.Featured)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.Description)
+        </div>
+        <div class="col-sm-10">
+            @Html.TextAreaFor(p=>p.Description, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.DemoUrl)
+        </div>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p=>p.DemoUrl, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.SourceUrl)
+        </div>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p=>p.SourceUrl, new { @class = "form-control"})
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(p=>p.Updated)
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(p=>p.Updated)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row btn-group">
+            <button class="btn btn-success half-width" type="submit">Save</button>
+            <a href="@Url.Action("Delete","Project", Model)" class="btn btn-danger half-width" >Delete</a>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <label>Saved Preview</label>
+        <p>Save changes to see update.</p>
+    </div>
+    <div class="col-sm-12">
+        @Html.Partial("_ProjectCard",Model)
+    </div>
+</div>
