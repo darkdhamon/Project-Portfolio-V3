@@ -21,7 +21,13 @@
     <div class="row">
         @foreach (var project in projectRow)
         {
-            @Html.Partial("_ProjectCard",project)
+            @Html.Partial("_ProjectCard", project)
         }
     </div>
 }
+<div class="row btn-group">
+    <a href="@Url.Action("Index","Project",new{page = 1, pagesize = Model.PageSize})" class="btn btn-default fill-width @(Model.CurrentPage==1?"disabled":"")">First Page</a>
+    <a href="@Url.Action("Index","Project",new{page = Model.CurrentPage-1, pagesize = Model.PageSize})" class="btn btn-default fill-width @(Model.CurrentPage==1?"disabled":"")">Previous Page</a>
+    <a href="@Url.Action("Index","Project",new{page = Model.CurrentPage+1, pagesize = Model.PageSize})" class="btn btn-default fill-width @(Model.CurrentPage==Model.NumPages?"disabled":"")">Next Page</a>
+    <a href="@Url.Action("Index","Project",new{page = Model.NumPages, pagesize = Model.PageSize})" class="btn btn-default fill-width @(Model.CurrentPage==Model.NumPages?"disabled":"")">Last Page</a>
+</div>

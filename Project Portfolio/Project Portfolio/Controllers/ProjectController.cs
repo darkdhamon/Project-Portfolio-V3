@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using PortfolioModel.Abstract;
 using PortfolioModel.Entities;
@@ -16,11 +17,14 @@ namespace Project_Portfolio.Controllers
         }
 
         // GET: Project
-        public ActionResult Index(int page = 1, int pageSize = 20)
+        public ActionResult Index(int page = 1, int pageSize = 12)
         {
             var viewModel = new ProjectListViewModel
             {
-                Projects = _projectRepository.GetMany().OrderBy(p=>p.Updated).Skip((page - 1) * pageSize).Take(pageSize).ToList()
+                Projects = _projectRepository.GetMany().OrderBy(p=>p.Updated).Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+                CurrentPage = page,
+                PageSize = pageSize,
+                NumPages = (int) Math.Round(_projectRepository.GetMany().Count()*1.0/pageSize,0,MidpointRounding.AwayFromZero)
             };
             return View(viewModel);
         }

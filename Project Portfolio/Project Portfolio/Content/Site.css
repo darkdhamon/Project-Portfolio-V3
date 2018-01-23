@@ -1,4 +1,5 @@
 ﻿body {
+    height: 100%;
     
     padding-bottom: 20px;
 }
@@ -33,19 +34,19 @@ a i {
 }
 
 .card {
-    border: 1px solid gray;
+    border: 2px solid gray;
     -ms-border-radius: 5px;
     border-radius: 5px;
 }
 
 .featured {
-    background-color: palegoldenrod;
+    border: 2px gold solid;
 }
 .row.btn-group {
     display: flex;
 }
 
-.btn.half-width {
+.btn.fill-width {
     flex: 1;
 }
 
@@ -57,4 +58,8 @@ a i {
 
 .jumbotron {
     margin-top: -10px;
+}
+
+.body-content {
+    height: 100%;
 }

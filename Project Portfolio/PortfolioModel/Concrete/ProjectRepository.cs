@@ -7,8 +7,6 @@ using PortfolioModel.Entities;
 
 namespace PortfolioModel.Concrete
 {
-    
-
     public class ProjectRepository:AbstractRepository<Project>, IProjectRepository
     {
         public override IQueryable<Project> GetMany()

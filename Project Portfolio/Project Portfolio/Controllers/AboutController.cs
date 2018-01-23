@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PortfolioModel.Abstract;
 
 namespace Project_Portfolio.Controllers
 {
-    public class HomeController : Controller
+    public class AboutController : Controller
     {
+        // GET: About
         public ActionResult Index()
         {
             return View();
         }
-        
+
+
+        public ActionResult Resume()
+        {
+            return View();
+        }
+
+        public ActionResult Preferences()
+        {
+            return View();
+        }
     }
 }
