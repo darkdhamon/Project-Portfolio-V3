@@ -56,10 +56,11 @@ namespace Project_Portfolio.Controllers
             if (project != null) _projectRepository.AddOrUpdate(project);
             return View(project);
         }
+        
 
-        public ActionResult Delete(Project project)
+        public ActionResult Delete(int id)
         {
-            _projectRepository.Delete(project);
+            _projectRepository.Delete(id);
             return RedirectToAction("Index", "Project");
         }
     }

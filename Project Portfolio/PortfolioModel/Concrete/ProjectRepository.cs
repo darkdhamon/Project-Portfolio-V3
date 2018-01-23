@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using PortfolioModel.Abstract;
@@ -27,10 +26,10 @@ namespace PortfolioModel.Concrete
             return entity;
         }
 
-        public override void Delete(Project entity)
+        public override void Delete(int entityID)
         {
             
-            Context.Projects.Remove(GetEntity(entity.ID));
+            Context.Projects.Remove(GetEntity(entityID));
             Save();
         }
     }

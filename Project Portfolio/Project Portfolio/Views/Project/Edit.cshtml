@@ -65,7 +65,7 @@
     <div class="row">
         <div class="row btn-group">
             <button class="btn btn-success fill-width" type="submit">Save</button>
-            <a href="@Url.Action("Delete","Project", Model)" class="btn btn-danger fill-width" >Delete</a>
+            <a href="@Url.Action("Delete","Project", new { id = Model.ID})" class="btn btn-danger fill-width" >Delete</a>
         </div>
     </div>
 }

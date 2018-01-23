@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PortfolioModel.Abstract;
 using PortfolioModel.Entities;
 
@@ -26,7 +22,7 @@ namespace PortfolioModel.Concrete
         public abstract IQueryable<TEntity> GetMany();
         public abstract TEntity GetEntity(int id);
         public abstract TEntity AddOrUpdate(TEntity entity);
-        public abstract void Delete(TEntity entity);
+        public abstract void Delete(int entityID);
 
         public void Save()
         {

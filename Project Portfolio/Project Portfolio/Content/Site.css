@@ -47,6 +47,9 @@ a i {
 }
 
 .btn.fill-width {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -o-flex: 1;
     flex: 1;
 }
 

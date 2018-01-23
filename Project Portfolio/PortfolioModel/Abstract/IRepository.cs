@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace PortfolioModel.Abstract
 {
@@ -11,7 +7,7 @@ namespace PortfolioModel.Abstract
         IQueryable<TEntity> GetMany();
         TEntity GetEntity(int id);
         TEntity AddOrUpdate(TEntity entity);
-        void Delete(TEntity entity);
+        void Delete(int entityID);
         void Save();
     }
 }
