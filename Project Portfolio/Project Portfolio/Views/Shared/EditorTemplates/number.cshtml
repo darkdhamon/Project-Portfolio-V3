@@ -1,0 +1,4 @@
+﻿@model int
+
+@Html.TextBoxFor(m=>m, new{type="number",
+    @class = $"form-control minimize-width {ViewBag.@class}", ViewBag.placeholder})

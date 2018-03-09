@@ -4,23 +4,29 @@
 
 @section sideNav
 {
-    <ul class="nav nav-pills nav-stacked" style="position: fixed">
-        <li role="presentation">
-            @Html.ActionLink("About Me","Index","About")
-        </li>
-        <li role="presentation">
-            @Html.ActionLink("Resume", "Resume", "About")
-        </li>
-        <li role="presentation">
-            @Html.ActionLink("Job Preferences", "Preferences","About")
-        </li>
-        <li role="presentation">
-            <a href="https://www.linkedin.com/in/bronzeharoldbrown/" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
-        </li>
-        <li role="presentation">
-            <a href="https://www.facebook.com/darkdhamon" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
-        </li>
-    </ul>
+    @{
+        var active = "active";
+        var index =   (string) ViewContext.RouteData.Values["action"]=="Index";
+        var resume =   (string) ViewContext.RouteData.Values["action"]== "Resume";
+        var preferences =  (string) ViewContext.RouteData.Values["action"]== "Preferences";
+    }
+
+<div class="nav flex-column nav-pills side-nav" role="tablist" aria-orientation="vertical">
+    @Html.ActionLink("About Me", "Index", "About", null, new
+    {
+        @class = $"nav-link {(index ? active : "")}"
+    })
+    @Html.ActionLink("Resume", "Resume", "About", null, new
+    {
+        @class = $"nav-link {(resume ? active : "")}"
+    })
+    @Html.ActionLink("Job Preferences", "Preferences", "About", null, new
+    {
+        @class = $"nav-link {(preferences ? active : "")}"
+    })
+    <a class="nav-link" href="https://www.linkedin.com/in/bronzeharoldbrown/" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+    <a class="nav-link" href="https://www.facebook.com/darkdhamon" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+</div>
 }
 
 @RenderBody()

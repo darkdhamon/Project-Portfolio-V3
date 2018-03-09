@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section sideNav
+{
+    @{
+        var active = "active";
+        var hidden = "display: none;";
+        var index =   (string) ViewContext.RouteData.Values["action"]=="Index";
+        var edit =   (string) ViewContext.RouteData.Values["action"]== "Edit";
+    }
+
+    <div class="nav flex-column nav-pills side-nav" role="tablist" aria-orientation="vertical">
+        @Html.ActionLink("Project List", "Index", "Project", null, new
+        {
+            @class = $"nav-link {(index ? active : "")}"
+        })
+        <a class="nav-link disabled @(edit ? active : "")" style="@(!edit ? hidden : "")" >
+            Edit
+        </a>
+    </div>
+}
+
+@RenderBody()
+
