@@ -12,6 +12,7 @@ namespace PortfolioModel.Concrete
         }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 
     public abstract class AbstractRepository<TEntity>:IRepository<TEntity>

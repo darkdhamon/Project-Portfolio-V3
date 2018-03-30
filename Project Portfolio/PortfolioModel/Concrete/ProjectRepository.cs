@@ -33,4 +33,27 @@ namespace PortfolioModel.Concrete
             Save();
         }
     }
+
+    public class ProfileRepository : AbstractRepository<Profile>, IProfileRepository
+    {
+        public override IQueryable<Profile> GetMany()
+        {
+            return Context.Profiles;
+        }
+
+        public override Profile GetEntity(int id)
+        {
+            return Context.Profiles.FirstOrDefault(p => p.ID == id);
+        }
+
+        public override Profile AddOrUpdate(Profile entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(int entityID)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

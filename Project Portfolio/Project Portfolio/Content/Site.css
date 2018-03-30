@@ -113,3 +113,7 @@ footer {
     background-color: white;
     color: black;
 }
+
+.container {
+    margin-bottom: 75px;
+}
