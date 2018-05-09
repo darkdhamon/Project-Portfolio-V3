@@ -81,6 +81,12 @@ a i {
     overflow-y: auto;
 }
 
+.nav-link.admin {
+    color: #600;
+    background-color: #f99;
+    border: red;
+}
+
 .side-nav {
     background-color: #808080;
     padding: 3px;

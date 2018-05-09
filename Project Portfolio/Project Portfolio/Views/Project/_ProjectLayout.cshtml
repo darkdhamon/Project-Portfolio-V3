@@ -16,9 +16,16 @@
         {
             @class = $"nav-link {(index ? active : "")}"
         })
-        <a class="nav-link disabled @(edit ? active : "")" style="@(!edit ? hidden : "")" >
-            Edit
+        <a class="nav-link disabled @(edit ? active : "")" style="@(!edit ? hidden : "")">
+            Add/Edit Project
         </a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="nav-link admin @(edit ? active : "")" style="@(edit ? hidden : "")"
+               href="@Url.Action("Edit","Project")">
+                <i class="fa fa-plus"></i> New Project
+            </a>
+        }
     </div>
 }
 

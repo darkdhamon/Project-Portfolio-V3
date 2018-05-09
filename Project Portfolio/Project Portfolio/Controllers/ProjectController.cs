@@ -17,23 +17,29 @@ namespace Project_Portfolio.Controllers
         }
 
         // GET: Project
-        public ActionResult Index(int page = 1, int pageSize = 12)
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
             if (pageSize < 1)
             {
-                pageSize = 12;
+                pageSize = 6;
             }
             if (page < 1)
             {
                 page = 1;
             }
 
+            ModelState.Clear();
+
+            double numProjects = _projectRepository.GetMany().Count();
+            var numPages = numProjects / pageSize;
+            var numpages = Math.Round(numPages + .4999999999999999999999,0, MidpointRounding.AwayFromZero);
+
             var viewModel = new ProjectListViewModel
             {
                 Projects = _projectRepository.GetMany().OrderBy(p=>p.Updated).Skip((page - 1) * pageSize).Take(pageSize).ToList(),
                 CurrentPage = page,
                 PageSize = pageSize,
-                NumPages = (int) Math.Round(_projectRepository.GetMany().Count()*1.0/pageSize,0,MidpointRounding.AwayFromZero)
+                NumPages = (int) numpages
             };
             return View(viewModel);
         }
@@ -50,9 +56,9 @@ namespace Project_Portfolio.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int? id = 0)
         {
-            var project = _projectRepository.GetEntity(id) ?? new Project();
+            var project = _projectRepository.GetEntity(id??0) ?? new Project();
             return View(project);
         }
 
