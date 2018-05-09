@@ -19,6 +19,15 @@ namespace Project_Portfolio.Controllers
         // GET: Project
         public ActionResult Index(int page = 1, int pageSize = 12)
         {
+            if (pageSize < 1)
+            {
+                pageSize = 12;
+            }
+            if (page < 1)
+            {
+                page = 1;
+            }
+
             var viewModel = new ProjectListViewModel
             {
                 Projects = _projectRepository.GetMany().OrderBy(p=>p.Updated).Skip((page - 1) * pageSize).Take(pageSize).ToList(),

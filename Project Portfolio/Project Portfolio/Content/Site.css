@@ -38,9 +38,20 @@ a i {
 }
 
 .card {
-    border: 2px solid gray;
+    /*border: 2px solid gray;*/
     -ms-border-radius: 5px;
     border-radius: 5px;
+    background-color: #eee;
+    margin:2px;
+}
+
+.card-col{
+    padding:4px
+}
+
+
+.card-row{
+    padding:11px;
 }
 
 .featured {
@@ -60,7 +71,6 @@ a i {
 .projectDescription {
     height: 250px;
     overflow-y: auto;
-    padding-left: 10px;
 }
 
 .jumbotron {

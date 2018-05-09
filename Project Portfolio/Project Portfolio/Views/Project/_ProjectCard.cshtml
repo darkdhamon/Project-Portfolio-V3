@@ -1,40 +1,42 @@
 ﻿@model PortfolioModel.Entities.Project
 
-<div class="col-sm-6 col-md-4 col-sm-3 card">
-    @{
+<div class="col-sm-6 col-md-4 col-sm-3 card-col">
+    <div class="col-md-12 card">
+        @{
         var description = Model.Description?.Split(Environment.NewLine.ToCharArray());
-    }
-    <div class="row projectDescription">
-        <div class="col-12">
-            <h4>
-                @if (Model.Featured)
-        {
-            <i class="featured fa fa-star"></i>
-}
-                @Model.Name
-                @if (User.Identity.IsAuthenticated)
-        {
-            <a href="@Url.Action("Edit", "Project", new {id = Model.ID})">
-                <i class="fa fa-pencil"></i>
-            </a>
-}
+        }
+        <div class="row projectDescription">
+            <div class="col-12">
+                <h4>
+                    @if (Model.Featured)
+                {
+                    <i class="featured fa fa-star"></i>
+            }
+                    @Model.Name
+                    @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Edit", "Project", new {id = Model.ID})">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+            }
 
-            </h4>
-            @foreach (var paragraph in description ?? new string[0])
-    {
-        <p>@paragraph</p>
-}
+                </h4>
+                @foreach (var paragraph in description ?? new string[0])
+            {
+                <p>@paragraph</p>
+        }
+            </div>
         </div>
-    </div>
 
-    <div class="row btn-group">
-        @if (!string.IsNullOrWhiteSpace(Model.DemoUrl))
+        <div class="row btn-group">
+            @if (!string.IsNullOrWhiteSpace(Model.DemoUrl))
         {
             <a class="btn btn-success fill-width" target="_blank" href="@Model.DemoUrl">Demo</a>
-        }
-        @if (!string.IsNullOrWhiteSpace(Model.SourceUrl))
+    }
+            @if (!string.IsNullOrWhiteSpace(Model.SourceUrl))
         {
             <a class="btn btn-info fill-width" target="_blank" href="@Model.SourceUrl">Source</a>
-        }
+    }
+        </div>
     </div>
 </div>
