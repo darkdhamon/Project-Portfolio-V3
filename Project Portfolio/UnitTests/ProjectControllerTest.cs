@@ -180,7 +180,7 @@ namespace UnitTests
             {
                 ProjectRepository.Setup(repo => repo.GetEntity(i)).Returns(Projects.Find(p => p.ID == i));
             }
-            ProjectRepository.Setup(repo=>repo.AddOrUpdate(It.Is<Project>(p=>p.ID==0))).Returns()
+            //ProjectRepository.Setup(repo=>repo.AddOrUpdate(It.Is<Project>(p=>p.ID==0))).Returns()
         }
 
         [TestCase()]
