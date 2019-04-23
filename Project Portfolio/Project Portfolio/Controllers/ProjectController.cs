@@ -40,14 +40,14 @@ namespace Project_Portfolio.Controllers
             return PartialView(viewModel);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id = 0)
         {
             var project = _projectRepository.GetEntity(id) ?? new Project();
             return View(project);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(Project project = null)
         {
@@ -57,7 +57,7 @@ namespace Project_Portfolio.Controllers
             return View(project);
         }
         
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             _projectRepository.Delete(id);

@@ -7,7 +7,12 @@ namespace PortfolioModel.Concrete
 {
     public class ProjectContext : DbContext
     {
-        public ProjectContext(string connection = "DefaultConnection") : base(connection)
+        public const string defaultConnection = "DefaultConnection";
+        public ProjectContext(string connection = defaultConnection) : base(connection)
+        {
+        }
+
+        public ProjectContext() : base(defaultConnection)
         {
         }
 
