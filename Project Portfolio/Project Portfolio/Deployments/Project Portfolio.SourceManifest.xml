@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\bronz_pslwt\OneDrive\Documents\GitHub\Project-Portfolio-V3\Project Portfolio\Project Portfolio\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\bronz_pslwt\OneDrive\Documents\GitHub\Project-Portfolio-V3\Project Portfolio\Project Portfolio\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\bronz_pslwt\OneDrive\Documents\GitHub\Project-Portfolio-V3\Project Portfolio\Project Portfolio\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\bronz_pslwt\OneDrive\Documents\GitHub\Project-Portfolio-V3\Project Portfolio\Project Portfolio\obj\Release\Package\PackageTmp\App_Data" setAclResourceType="Directory" setAclAccess="Write" />
+</sitemanifest>

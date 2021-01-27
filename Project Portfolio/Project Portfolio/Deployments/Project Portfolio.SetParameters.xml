@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="BronzeHaroldBrown.com" />
+  <setParameter name="DefaultConnection-Web.config Connection String" value="Data Source=FALCON\SQLEXPRESS;Initial Catalog=ProjectPortfolio;User ID=PortfolioProject;Password=***********" />
+</parameters>
